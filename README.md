@@ -1,46 +1,48 @@
 # Chirpy - REST API Server
 
-Chirpy is a robust, production-ready backend service (a Twitter clone) written in **Go**. The project implements a complete REST API for user management, secure authentication, short text post creation (Chirps), content moderation, and payment integration via webhooks.
+Chirpy is a robust, production-ready backend service written in **Go**. The project implements a complete REST API for user management, secure authentication, short text post creation (Chirps), content moderation, and payment integration via webhooks.
 
-## Tech Stack
-- **Language:** Go (Golang)
-- **Database:** PostgreSQL
-- **SQL Generator:** SQLC (or standard library database/sql)
-- **Authentication:** JWT (JSON Web Tokens) with Access & Refresh Token rotation
-- **Security:** bcrypt (for secure password hashing)
+## Motivation
+The motivation behind this project is to build a scalable, secure, and performant REST API from scratch using Go's standard library. By avoiding heavy third-party frameworks, this project demonstrates a deep understanding of HTTP protocol fundamentals, database integration with PostgreSQL, secure password hashing, and clean architectural design in Go.
 
-## Features
-- **Users:** Registration, secure login, and profile updates.
-- **Chirps:** Create, retrieve (with author filtering and sorting), and delete posts.
-- **Content Moderation:** Automatic profanity filter that replaces restricted words with `****`.
-- **Security:** Route protection via custom JWT middleware and secure password hashing.
-- **Webhooks (Polka):** Handle external payment events to upgrade users to "Chirpy Red" status.
-- **Metrics & Admin:** Built-in middleware to track API hits and an admin dashboard to view/reset server state.
-
-## Getting Started
+## Quick Start
 
 ### 1. Prerequisites
 Ensure you have the following installed:
 - [Go](https://go.dev/) (version 1.20+)
 - [PostgreSQL](https://www.postgresql.org/)
 
-### 2. Clone the Repository
+### 2. Clone and Setup
 ```bash
 git clone https://github.com/OlehHawryliuk/chirpy.git
 cd chirpy
-```
-### 3. Setup Environment Variables
-Create your local configuration file by copying the template:
-
-```bash
 cp .env.example .env
 ```
 
-Note: After running this command, open the newly created .env file and replace the placeholder values with your actual PostgreSQL connection details and JWT secrets.
-
-### 4. Run the Server
+### 3. Run the Server
 ```bash
 go run main.go
 ```
-
 The server will start listening on port :8080.
+
+### Usage
+Once the server is running, you can interact with the API endpoints. Below are the key available routes:
+
+Method	Endpoint	         Description	Auth Required
+GET	    /api/healthz	     Check server readiness	Public
+POST	/api/users	         Register a new user	Public
+POST	/api/login	         User login (returns JWT)	Public
+POST	/api/chirps	         Create a new Chirp	Private (JWT)
+GET	    /api/chirps	         Retrieve all Chirps	Public
+DELETE	/api/chirps/{id}     Delete a Chirp	Private (Owner only)
+POST	/api/polka/webhooks	 Handle Polka payment webhooks	Private (Polka Key)
+You can use curl, Postman, or any HTTP client to send requests to http://localhost:8080.
+
+### Contributing
+Contributions are welcome! If you would like to contribute to this project, please follow these steps:
+
+Fork the repository.
+Create a new branch for your feature or bug fix (git checkout -b feature/your-feature-name).
+Commit your changes (git commit -m 'Add some feature').
+Push to the branch (git push origin feature/your-feature-name).
+Open a Pull Request.
