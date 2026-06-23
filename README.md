@@ -15,7 +15,6 @@ Ensure you have the following installed:
 ### 2. Clone and Setup
 ```bash
 git clone https://github.com/OlehHawryliuk/chirpy.git
-cd chirpy
 cp .env.example .env
 ```
 
