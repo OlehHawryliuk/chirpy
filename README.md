@@ -80,13 +80,11 @@ Server starts at `http://localhost:8080`
 
 ### Base URL
 
-<<<<<<< HEAD
 Fork the repository.
 Create a new branch for your feature or bug fix (git checkout -b feature/your-feature-name).
 Commit your changes (git commit -m 'Add some feature').
 Push to the branch (git push origin feature/your-feature-name).
 Open a Pull Request.
-=======
 http://localhost:8080/api
 
 ### Authentication
@@ -192,6 +190,7 @@ curl -X DELETE http://localhost:8080/api/chirps/550e8400-e29b-41d4-a716-44665544
 
 ## Project Structure
 
+```text
 chirpy/
 ├── main.go               # Application entry point
 ├── go.mod                # Go module definition
@@ -220,6 +219,7 @@ chirpy/
 │   └── index.html        # Frontend application
 │
 └── README.md             # This file
+```
 
 ## Security Features
 
@@ -375,4 +375,3 @@ For issues, questions, or suggestions:
 **Made with ❤️ by Oleh Hawryliuk**
 
 **Stars and feedback are appreciated!** ⭐
->>>>>>> b892cfb (readme fix)
