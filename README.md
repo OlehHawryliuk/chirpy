@@ -193,33 +193,34 @@ curl -X DELETE http://localhost:8080/api/chirps/550e8400-e29b-41d4-a716-44665544
 ## Project Structure
 
 chirpy/
-├── main.go # Application entry point
-├── go.mod # Go module definition
-├── go.sum # Dependency checksums
-├── sqlc.yaml # sqlc configuration
-├── .env.example # Environment template
+├── main.go               # Application entry point
+├── go.mod                # Go module definition
+├── go.sum                # Dependency checksums
+├── sqlc.yaml             # sqlc configuration
+├── .env.example          # Environment template
 │
-├── internal/ # Internal packages
-│ ├── auth.go # JWT token handling & validation
-│ ├── database.go # PostgreSQL connection & queries
-│ ├── models.go # Data structures
-│ └── utils.go # Helper functions
+├── internal/             # Internal packages
+│   ├── auth.go           # JWT token handling & validation
+│   ├── database.go       # PostgreSQL connection & queries
+│   ├── models.go         # Data structures
+│   └── utils.go          # Helper functions
 │
-├── handlers/ # HTTP request handlers
-│ ├── users.go # User registration & login
-│ ├── chirps.go # Chirp CRUD operations
-│ ├── webhooks.go # Payment webhook handling
-│ ├── health.go # Health & readiness checks
-│ └── auth.go # Token refresh & validation
+├── handlers/             # HTTP request handlers
+│   ├── users.go          # User registration & login
+│   ├── chirps.go         # Chirp CRUD operations
+│   ├── webhooks.go       # Payment webhook handling
+│   ├── health.go         # Health & readiness checks
+│   └── auth.go           # Token refresh & validation
 │
-├── sql/ # Database schema & queries
-│ ├── schema.sql # Table definitions
-│ └── queries.sql # sqlc query definitions
+├── sql/                  # Database schema & queries
+│   ├── schema.sql        # Table definitions
+│   └── queries.sql       # sqlc query definitions
 │
-├── assets/ # Static assets & frontend
-│ └── index.html # Frontend application
+├── assets/               # Static assets & frontend
+│   └── index.html        # Frontend application
 │
-└── README.md # This file
+└── README.md             # This file
+
 ## Security Features
 
 - **JWT Authentication** - Secure token-based authentication with 1-hour expiration
